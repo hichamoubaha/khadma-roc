@@ -80,7 +80,7 @@ class CandidatureController extends Controller
         'statut' => 'required|in:En attente,Acceptée,Refusée'
     ]);
 
-    // Trouver la candidature
+    // Trouver la candidatur
     $candidature = Candidature::find($id);
 
     if (!$candidature) {
