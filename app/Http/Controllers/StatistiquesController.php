@@ -14,7 +14,7 @@ class StatistiquesController extends Controller
     public function statistiquesRecruteur()
     {
         try {
-            // Vérifier que l'utilisateur est un recruteur
+            // Verifier que l'utilisateur est un recruteur
             if (Auth::user()->role !== 'recruteur') {
                 return response()->json(['message' => 'Accès non autorisé'], 403);
             }
