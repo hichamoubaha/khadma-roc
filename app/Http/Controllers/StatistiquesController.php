@@ -45,7 +45,7 @@ class StatistiquesController extends Controller
         }
     }
 
-    // Statistiques globales pour l'administrateur
+    
     public function statistiquesAdmin()
     {
         // Vérifier que l'utilisateur est un administrateur
