@@ -87,7 +87,7 @@ class CandidatureController extends Controller
         return response()->json(['message' => 'Candidature non trouvée'], 404);
     }
 
-    // Vérifier l'autorisation de mise à jour (par exemple, si c'est le recruteur de l'annonce)
+    // Vérifier l'autorisation de mise à jour 
     if (auth()->user()->role !== 'recruteur' || auth()->id() !== $candidature->annonce->user_id) {
         return response()->json(['message' => 'Accès non autorisé'], 403);
     }
