@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Services\AnnonceService;
 use App\Models\Annonce;
 use Illuminate\Support\Facades\Auth;
-
 class AnnonceController extends Controller
 {
     protected $annonceService;
@@ -67,3 +66,6 @@ class AnnonceController extends Controller
         return response()->json(['message' => 'Annonce supprimée']);
     }
 }
+
+
+//annonce controller
