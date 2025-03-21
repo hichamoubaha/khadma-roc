@@ -23,3 +23,4 @@ class Annonce extends Model
     }
 }
 
+//annonce
