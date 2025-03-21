@@ -75,7 +75,7 @@ class CandidatureController extends Controller
     }
     public function updateStatut(Request $request, $id)
 {
-    // Valider le statut
+    // Valider le statuts
     $request->validate([
         'statut' => 'required|in:En attente,Acceptée,Refusée'
     ]);
