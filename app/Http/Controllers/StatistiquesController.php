@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Log;
 
 class StatistiquesController extends Controller
 {
-    // Statistiques pour le recruteur (annonces et candidatures)
+    // Statistiques pour le recruteur 
     public function statistiquesRecruteur()
     {
         try {
