@@ -66,3 +66,4 @@ public function logout(Request $request)
 
 }
 
+//auth controller
