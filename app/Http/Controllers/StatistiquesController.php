@@ -25,7 +25,7 @@ class StatistiquesController extends Controller
                 return response()->json(['message' => 'Aucune annonce trouvée pour ce recruteur.'], 404);
             }
 
-            // Calculer les statistiques des candidatures
+            
             $totalAnnonces = $annonces->count();
             $totalCandidatures = Candidature::whereIn('annonce_id', $annonces->pluck('id'))->count();
             $candidaturesParAnnonce = [];
