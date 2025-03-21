@@ -48,7 +48,7 @@ class StatistiquesController extends Controller
     
     public function statistiquesAdmin()
     {
-        // Vérifier que l'utilisateur est un administrateur
+        // Verifier que l'utilisateur est un administrateur
         if (Auth::user()->role !== 'administrateur') {
             return response()->json(['message' => 'Accès non autorisé'], 403);
         }
