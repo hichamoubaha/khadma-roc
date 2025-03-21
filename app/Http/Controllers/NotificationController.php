@@ -22,3 +22,4 @@ class NotificationController extends Controller
     }
 }
 
+//notification
