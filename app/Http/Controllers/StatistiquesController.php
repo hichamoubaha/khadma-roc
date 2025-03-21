@@ -14,12 +14,12 @@ class StatistiquesController extends Controller
     public function statistiquesRecruteur()
     {
         try {
-            // Verifier que l'utilisateur est un recruteur
+            
             if (Auth::user()->role !== 'recruteur') {
                 return response()->json(['message' => 'Accès non autorisé'], 403);
             }
 
-            // Récupérer les annonces du recruteur
+            
             $annonces = Annonce::where('user_id', Auth::id())->get();
             if ($annonces->isEmpty()) {
                 return response()->json(['message' => 'Aucune annonce trouvée pour ce recruteur.'], 404);
