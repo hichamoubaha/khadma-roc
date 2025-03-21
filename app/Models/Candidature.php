@@ -23,3 +23,5 @@ class Candidature extends Model
         return $this->belongsTo(Annonce::class);
     }
 }
+
+//candidature
