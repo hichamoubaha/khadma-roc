@@ -52,5 +52,3 @@ class CandidatureNotification extends Notification implements ShouldQueue
     }
 }
 
-
-//can notification

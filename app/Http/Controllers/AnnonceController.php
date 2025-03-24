@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Services\AnnonceService;
 use App\Models\Annonce;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 class AnnonceController extends Controller
 {
     protected $annonceService;
@@ -17,6 +18,11 @@ class AnnonceController extends Controller
 
     public function store(Request $request)
     {
+
+        if (!Gate::allows('create', Annonce::class)) {
+            return response()->json(['message' => 'Accès non autorisé'], 403);
+        }
+
         $request->validate([
             'titre' => 'required|string|max:255',
             'description' => 'required|string',
@@ -45,6 +51,11 @@ class AnnonceController extends Controller
 
     public function update(Request $request, Annonce $annonce)
     {
+
+        if (!Gate::allows('update', $annonce)) {
+            return response()->json(['message' => 'Accès non autorisé'], 403);
+        }
+
         if ($annonce->user_id !== Auth::id()) {
             return response()->json(['message' => 'Accès interdit'], 403);
         }
@@ -57,6 +68,10 @@ class AnnonceController extends Controller
 
     public function destroy(Annonce $annonce)
     {
+
+        if (!Gate::allows('delete', $annonce)) {
+            return response()->json(['message' => 'Accès non autorisé'], 403);
+        }
         if ($annonce->user_id !== Auth::id()) {
             return response()->json(['message' => 'Accès interdit'], 403);
         }
@@ -68,5 +83,3 @@ class AnnonceController extends Controller
 }
 
 
-//annonce controller
-//update

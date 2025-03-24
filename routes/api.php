@@ -12,6 +12,27 @@ use App\Http\Controllers\NotificationController;
 
 use App\Http\Controllers\StatistiquesController;
 
+use Illuminate\Support\Facades\Gate;
+
+Route::middleware(['auth:sanctum'])->group(function () {
+    // Routes for Admin
+    Route::get('/statistiques/admin', function () {
+        if (!Gate::allows('is-admin')) {
+            return response()->json(['message' => 'Accès non autorisé'], 403);
+        }
+        return response()->json(['message' => 'Admin Statistics Data']);
+    });
+
+    // Routes for Recruteur
+    Route::get('/statistiques/recruteur', function () {
+        if (!Gate::allows('is-recruteur')) {
+            return response()->json(['message' => 'Accès non autorisé'], 403);
+        }
+        return response()->json(['message' => 'Recruteur Statistics Data']);
+    });
+});
+
+
 
 
 Route::middleware(['auth:sanctum', 'role:admin'])->get('/statistiques/admin', [StatistiquesController::class, 'getAdminStatistics']);
